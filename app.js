@@ -1,7 +1,23 @@
 /*
 module.exports = require(__dirname + '/app/main')
-*/
+
 
 module.exports = process.env.APP_COV
   ? require(__dirname + '/app-cov/main')
   : require(__dirname + '/app/main')
+*/
+
+var express = require('express'),
+  app = express(),
+  pages = require(__dirname + '/controllers/pages')
+
+// configuration settings
+app.set('views', __dirname + '/views')
+app.set('view engine', 'ejs')
+app.use(express.static(__dirname + '/public'))
+
+// mount routes
+app.get('/', function(rec, res) { res.redirect('home') })
+app.get('/home', pages.home)
+
+module.exports = app
