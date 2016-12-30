@@ -6,13 +6,15 @@ exports.home = function(req, res) {
 exports.home = function(rec, res) {
   res.render('pages/home', {
     title: 'Home page',
-    message: 'This is the "home" action of "pages" controller'
+    message: 'This is the "home" action of "pages" controller',
+    body: 'body home'
   })
 }
 
 exports.about = function(rec, res) {
   res.render('pages/about', {
     title: 'About page',
-    message: 'This is the "about" action of "pages" controller'
+    message: 'Lorem ipsum',
+    body: 'About page body'
   })
 }
