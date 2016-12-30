@@ -8,10 +8,12 @@ module.exports = process.env.APP_COV
 */
 
 var express = require('express'),
+  ejsLocals = require('ejs-locals'),
   app = express(),
   pages = require(__dirname + '/controllers/pages')
 
 // configuration settings
+app.engine('ejs', ejsLocals)
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
